@@ -94,7 +94,7 @@ export function ProductDetail({ product }: { product: Product }) {
           <AddToCartButton
             variantId={variant?.id ?? ""}
             available={Boolean(variant?.availableForSale)}
-            className="flex-1 py-4 text-base"
+            className="flex-1"
           />
         </div>
 

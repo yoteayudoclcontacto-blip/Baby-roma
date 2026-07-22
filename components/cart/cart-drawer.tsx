@@ -6,7 +6,7 @@ import { formatMoney } from "@/lib/utils";
 import { CloseIcon, MinusIcon, PlusIcon, ShieldIcon } from "@/components/icons";
 
 export function CartDrawer() {
-  const { cart, isOpen, closeCart, updateItem, removeItem, isPending } = useCart();
+  const { cart, isOpen, closeCart, updateItem, removeItem, isPending, error } = useCart();
   const lines = cart?.lines ?? [];
 
   return (
@@ -38,6 +38,10 @@ export function CartDrawer() {
             <CloseIcon className="h-5 w-5" />
           </button>
         </div>
+
+        {error && (
+          <p className="border-b border-accent-100 bg-accent-50 px-5 py-2 text-sm text-accent-700">{error}</p>
+        )}
 
         {lines.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 text-center">
